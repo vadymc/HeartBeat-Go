@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -35,6 +34,7 @@ func init() {
 }
 
 func sendPushNotification(event string) {
+	log.Printf("Processing %v", event)
 	title, body := parseEvent(event)
 	data := &messaging.Notification{
 		Title: title,
@@ -44,8 +44,12 @@ func sendPushNotification(event string) {
 		Notification: data,
 		Topic:        "notification_events",
 	}
-	client.Send(context.Background(), msg)
-	fmt.Println(msg)
+	_, err := client.Send(context.Background(), msg)
+	if err != nil {
+		log.Fatalf("Failed %v", err)
+		return
+	}
+	log.Printf("Processed %v", event)
 }
 
 func parseEvent(event string) (string, string) {
