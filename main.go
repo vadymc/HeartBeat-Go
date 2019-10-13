@@ -7,5 +7,5 @@ import (
 func main() {
 	router := gin.Default()
 	router.POST("/v1/events/", createEvent)
-	router.Run(":8080")
+	router.Run(":11001")
 }

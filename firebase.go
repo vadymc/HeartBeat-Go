@@ -15,9 +15,9 @@ import (
 var client *messaging.Client
 
 func init() {
-	apiCreds := os.Getenv("FIREBASE_KEY")
+	apiCredsConfig := os.Getenv("FIREBASE_CONFIG")
 	url := os.Getenv("FIREBASE_URL")
-	credentials := option.WithCredentialsJSON([]byte(apiCreds))
+	credentials := option.WithCredentialsFile(apiCredsConfig)
 	endpoint := option.WithEndpoint(url)
 	conf := &firebase.Config{
 		ProjectID: "heartbeatpublisher",
@@ -45,7 +45,7 @@ func sendPushNotification(event string) {
 		Topic:        "notification_events",
 	}
 	client.Send(context.Background(), msg)
-	fmt.Println(msg)
+	fmt.Printf("Processed %v", event)
 }
 
 func parseEvent(event string) (string, string) {
