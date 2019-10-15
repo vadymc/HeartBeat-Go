@@ -34,8 +34,8 @@ func init() {
 	}
 }
 
-func sendPushNotification(event string) {
-	title, body := parseEvent(event)
+func sendPushNotification(event []byte) {
+	title, body := ParseEvent(event)
 	data := &messaging.Notification{
 		Title: title,
 		Body:  body,

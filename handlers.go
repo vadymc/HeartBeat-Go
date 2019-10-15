@@ -13,9 +13,8 @@ func createEvent(c *gin.Context) {
 	c.Status(http.StatusOK)
 }
 
-func getBody(c *gin.Context) string {
+func getBody(c *gin.Context) []byte {
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(c.Request.Body)
-	body := buf.String()
-	return body
+	return buf.Bytes()
 }
