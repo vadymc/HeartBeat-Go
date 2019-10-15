@@ -14,9 +14,15 @@ import (
 
 var client *messaging.Client
 
+const (
+	configLocation = "FIREBASE_CONFIG"
+	firebaseURL = "FIREBASE_URL"
+	pushTopic = "notification_events"
+)
+
 func init() {
-	apiCredsConfig := os.Getenv("FIREBASE_CONFIG")
-	url := os.Getenv("FIREBASE_URL")
+	apiCredsConfig := os.Getenv(configLocation)
+	url := os.Getenv(firebaseURL)
 	credentials := option.WithCredentialsFile(apiCredsConfig)
 	endpoint := option.WithEndpoint(url)
 	conf := &firebase.Config{
@@ -42,7 +48,7 @@ func sendPushNotification(event string) {
 	}
 	msg := &messaging.Message{
 		Notification: data,
-		Topic:        "notification_events",
+		Topic:        pushTopic,
 	}
 	client.Send(context.Background(), msg)
 	fmt.Printf("Processed %v", event)
