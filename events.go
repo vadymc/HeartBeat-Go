@@ -28,7 +28,9 @@ type Episode struct {
 func ParseEvent(b []byte) (string, string) {
 	e := &Event{}
 	err := json.Unmarshal(b, e)
-	checkError(err)
+	if err != nil {
+		return "", string(b)
+	}
 
 	var body string
 	//title
@@ -43,10 +45,4 @@ func ParseEvent(b []byte) (string, string) {
 		body = fmt.Sprintf("%v S%vE%v", body, e.Episodes[0].SeasonNumber, e.Episodes[0].EpisodeNumber)
 	}
 	return e.EventType, body
-}
-
-func checkError(e error) {
-	if e != nil {
-		panic(e)
-	}
 }

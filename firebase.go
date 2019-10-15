@@ -16,8 +16,8 @@ var client *messaging.Client
 
 const (
 	configLocation = "FIREBASE_CONFIG"
-	firebaseURL = "FIREBASE_URL"
-	pushTopic = "notification_events"
+	firebaseURL    = "FIREBASE_URL"
+	pushTopic      = "notification_events"
 )
 
 func init() {
@@ -51,7 +51,7 @@ func sendPushNotification(event []byte) {
 		Topic:        pushTopic,
 	}
 	client.Send(context.Background(), msg)
-	fmt.Printf("Processed %v", event)
+	fmt.Printf("Processed %v %v", title, body)
 }
 
 func parseEvent(event string) (string, string) {
