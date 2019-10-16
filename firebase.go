@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"strings"
 
 	firebase "firebase.google.com/go"
 	"firebase.google.com/go/messaging"
