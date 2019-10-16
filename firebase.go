@@ -14,13 +14,20 @@ import (
 
 var client *messaging.Client
 
+const (
+	configLocation = "FIREBASE_CONFIG"
+	firebaseURL    = "FIREBASE_URL"
+	pushTopic      = "notification_events"
+	projectID = "heartbeatpublisher"
+)
+
 func initFirebase() {
-	apiCredsConfig := os.Getenv("FIREBASE_CONFIG")
-	url := os.Getenv("FIREBASE_URL")
+	apiCredsConfig := os.Getenv(configLocation)
+	url := os.Getenv(firebaseURL)
 	credentials := option.WithCredentialsFile(apiCredsConfig)
 	endpoint := option.WithEndpoint(url)
 	conf := &firebase.Config{
-		ProjectID: "heartbeatpublisher",
+		ProjectID: projectID,
 	}
 	app, err := firebase.NewApp(context.Background(), conf, credentials, endpoint)
 	if err != nil {
@@ -42,16 +49,8 @@ func sendPushNotification(event []byte) {
 	}
 	msg := &messaging.Message{
 		Notification: data,
-		Topic:        "notification_events",
+		Topic:        pushTopic,
 	}
 	client.Send(context.Background(), msg)
-	fmt.Printf("Processed %v", event)
-}
-
-func parseEvent(event string) (string, string) {
-	i := strings.Index(event, "]")
-	if i > -1 {
-		return event[:i+1], event[i+1:]
-	}
-	return "", event
+	fmt.Printf("Processed %v %v", title, body)
 }
