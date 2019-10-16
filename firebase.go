@@ -14,7 +14,7 @@ import (
 
 var client *messaging.Client
 
-func init() {
+func initFirebase() {
 	apiCredsConfig := os.Getenv("FIREBASE_CONFIG")
 	url := os.Getenv("FIREBASE_URL")
 	credentials := option.WithCredentialsFile(apiCredsConfig)
