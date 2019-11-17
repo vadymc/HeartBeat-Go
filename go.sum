@@ -131,6 +131,8 @@ github.com/vadymc/telegram-client-go/v2 v2.0.3 h1:hOTn6Apj1PIPygQRw2TmbLG5LjOCDb
 github.com/vadymc/telegram-client-go/v2 v2.0.3/go.mod h1:lKg0ind1LS8zwcuOPpzfXbtkIWNFoJNiRNThNTCl9v8=
 github.com/vadymc/telegram-client-go/v2 v2.0.4 h1:6Tmb+4+Ok/TSQMet0J3xVU0aZLAy2r+v+tNiU2lsW4M=
 github.com/vadymc/telegram-client-go/v2 v2.0.4/go.mod h1:lKg0ind1LS8zwcuOPpzfXbtkIWNFoJNiRNThNTCl9v8=
+github.com/vadymc/telegram-client-go/v2 v2.0.5 h1:wGgPYk0uq3RqlZI2o7DqC/pon9Mqr3+OigZYhoRg6LE=
+github.com/vadymc/telegram-client-go/v2 v2.0.5/go.mod h1:lKg0ind1LS8zwcuOPpzfXbtkIWNFoJNiRNThNTCl9v8=
 go.opencensus.io v0.21.0 h1:mU6zScU4U1YAFPHEHYk+3JC4SY7JxgkqS10ZOSyksNg=
 go.opencensus.io v0.21.0/go.mod h1:mSImk1erAIZhrmZN+AvHh14ztQfjbGwt4TtuofqLduU=
 go.opencensus.io v0.22.0/go.mod h1:+kGneAE2xo2IficOXnaByMWTGM9T73dGwxeWcUqIpI8=

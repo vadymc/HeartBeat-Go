@@ -18,7 +18,7 @@ require (
 	github.com/konsorten/go-windows-terminal-sequences v1.0.2 // indirect
 	github.com/mattn/go-isatty v0.0.10 // indirect
 	github.com/ugorji/go v1.1.7 // indirect
-	github.com/vadymc/telegram-client-go/v2 v2.0.4
+	github.com/vadymc/telegram-client-go/v2 v2.0.5
 	go.opencensus.io v0.22.2 // indirect
 	golang.org/x/net v0.0.0-20191116160921-f9c825593386 // indirect
 	golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e // indirect

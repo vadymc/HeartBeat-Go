@@ -14,7 +14,7 @@ func init() {
 
 func sendTelegram(event []byte) {
 	title, body := ParseEvent(event)
-	text := fmt.Sprintf("[%v] %v", title, body)
+	text := fmt.Sprintf("[[%v]] %v", title, body)
 	telegramClient.SendMessage("HeartBeat", text)
 	fmt.Printf("Sent to telegram %v\n", text)
 }
