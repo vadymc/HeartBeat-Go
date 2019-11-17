@@ -3,18 +3,18 @@ package main
 import (
 	"fmt"
 
-	tg "github.com/vadymc/telegram-client-go/v2"
+	"github.com/vadymc/telegram-client-go/v2"
 )
 
-var telegramClient *tg.TelegramClient
+var telegramClient *telegram.TelegramClient
 
 func init() {
-	telegramClient = tg.NewTelegramClient()
+	telegramClient = telegram.NewTelegramClient()
 }
 
 func sendTelegram(event []byte) {
 	title, body := ParseEvent(event)
 	text := fmt.Sprintf("[%v] %v", title, body)
-	telegramClient.SendMessage(text)
+	telegramClient.SendMessage("HeartBeat", text)
 	fmt.Printf("Sent to telegram %v\n", text)
 }
